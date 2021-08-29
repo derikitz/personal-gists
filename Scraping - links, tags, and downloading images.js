@@ -28,16 +28,14 @@ console.log("Tags:" + to_paste)
 var imgs = selected.getElementsByTagName('img')
 var pre = (Math.random() + 1).toString(36).substring(7);
 for(var i = 0; i < imgs.length; i++) {
-	if ( !imgs[i].src.includes('thumb') ) {
-		var element = document.createElement('a');
-		element.setAttribute('href', imgs[i].src);
-		var path = imgs[i].src.split('/');
-		element.setAttribute('download', pre + 'img-'+i+"-"+path[path.length-1]);
-		element.setAttribute('target', '_blank');
-		element.style.display = 'none';
-		document.body.appendChild(element);
-		element.click();
-		document.body.removeChild(element);
-	}
+	var element = document.createElement('a');
+	element.setAttribute('href', imgs[i].src);
+	var path = imgs[i].src.split('/');
+	element.setAttribute('download', pre + 'img-'+i+"-"+path[path.length-1]);
+	element.setAttribute('target', '_blank');
+	element.style.display = 'none';
+	document.body.appendChild(element);
+	element.click();
+	document.body.removeChild(element);
 }
 
